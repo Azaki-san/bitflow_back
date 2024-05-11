@@ -2,13 +2,12 @@ from quart import Quart, jsonify, request
 from p1337x import py1337x
 
 app = Quart(__name__)
-search_engine = py1337x(proxy='1337x.to', cache='py1337xCache', cacheTime=500)
+search_engine = py1337x(proxy='1337xx.to', cache='py1337xCache', cacheTime=500)
 
 
 @app.route('/search', methods=['GET'])
 async def search():
     query = request.args.get('query')
-    print(query)
     if query != '':
         search_results = search_engine.search(query)
     else:
