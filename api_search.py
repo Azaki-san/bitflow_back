@@ -24,7 +24,7 @@ async def get_info():
 
 @app.route('/health', methods=['GET'])
 async def check_health():
-    a = {"status": "Fine!"}
+    a = {"status": "Fine!!"}
     return jsonify(a), 200
 
 
