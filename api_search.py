@@ -18,13 +18,15 @@ async def search():
 @app.route('/get_info', methods=['GET'])
 async def get_info():
     link = request.args.get('link')
-    a = search_engine.info(link=link)
-    return jsonify(a), 200
+    if link:
+        a = search_engine.info(link=link)
+        return jsonify(a), 200
+    return jsonify({"status": "Bad Request"}), 400
 
 
 @app.route('/health', methods=['GET'])
 async def check_health():
-    a = {"status": "Fine!!"}
+    a = {"status": "Ok"}
     return jsonify(a), 200
 
 
